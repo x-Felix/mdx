@@ -54,7 +54,7 @@
                     <img src="<?php global $files_root; echo $files_root."/img/beian.png"; ?>">
                     <?php echo mdx_get_option('mdx_wangan_num'); ?>
                 </a>
-            <?php }
+            <?php } ?>
         </div>
     <?php } else if (mdx_get_option("mdx_styles_footer") === "3") { ?>
         <div class="mdx-clean-footer">
