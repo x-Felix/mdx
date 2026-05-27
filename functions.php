@@ -409,18 +409,20 @@ function get_the_link_items($id = null) {
                     $rss_html = '';
                 }
                 $output .= '
-                <div class="mdui-row mdui-col-xs-6 mdui-col-sm-4 mdui-card">
-                  <div class="mdui-card-header">
-                    <div class="mdui-card-header-avatar mdx-links-avatar-card '.$lazy_load.'"></div>
-                    <div class="mdui-card-header-title">'.$bookmark->link_name.'</div>
-                    <div class="mdui-card-header-subtitle">'.$bookmark->link_description.'</div>
-                  </div>
-                  <div class="mdui-card-content">'.$bookmark->link_notes.'</div>
-                  <div class="mdui-card-actions">
-                    <button class="mdui-btn mdui-ripple">
-                      <a '.$rel.'href="'.$bookmark->link_url.'" title="'.$bookmark->link_name.'" target="'.$bookmark->link_target.'">前往</a>
-                    </button>
-                    '.$rss_html.'
+                <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4 links-co-card">
+                  <div class="mdui-card">
+                    <div class="mdui-card-header">
+                      <div class="mdui-card-header-avatar mdx-links-avatar-card '.$lazy_load.'"></div>
+                      <div class="mdui-card-header-title">'.$bookmark->link_name.'</div>
+                      <div class="mdui-card-header-subtitle">'.$bookmark->link_description.'</div>
+                    </div>
+                    <div class="mdui-card-content">'.$bookmark->link_notes.'</div>
+                    <div class="mdui-card-actions">
+                      <button class="mdui-btn mdui-ripple">
+                        <a '.$rel.'href="'.$bookmark->link_url.'" title="'.$bookmark->link_name.'" target="'.$bookmark->link_target.'">前往</a>
+                      </button>
+                      '.$rss_html.'
+                    </div>
                   </div>
                 </div>';
             }
@@ -925,7 +927,7 @@ function create_meta_box() {
 add_action('admin_menu', 'create_meta_box');
 
 function mdx_save_postdata_1($post_id, $post) {
-    if (!$_POST['informations_noncename'] || !wp_verify_nonce($_POST['informations_noncename'], plugin_basename(__FILE__))) {
+    if (!isset($_POST['informations_noncename']) || !wp_verify_nonce($_POST['informations_noncename'], plugin_basename(__FILE__))) {
         return $post->ID;
     }
     if ('page' == $_POST['post_type']) {
@@ -1035,5 +1037,13 @@ function mdx_add_editor_buttons($buttons) {
     return $buttons;
 }
 add_filter("mce_buttons_2", "mdx_add_editor_buttons");
+
+// Fix: WordPress search returning HTTP 200 for empty results (ivampiresp)
+function search_404_fix_template_redirect() {
+    if (is_search() && !is_404() && have_posts() === false) {
+        status_header(404);
+    }
+}
+add_action('template_redirect', 'search_404_fix_template_redirect');
 
 ?>

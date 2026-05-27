@@ -6,6 +6,7 @@ $falseoff = __( '关闭', 'mdx' );
 include __DIR__ . '/includes/cdn_version.php';
 global $cdn_commit_version;
 
+wp_enqueue_script( 'my-common', get_bloginfo( 'template_url' ) . '/js/admin_common.js' );
 wp_enqueue_script( 'my-tag', get_bloginfo( 'template_url' ) . '/js/admin_tag.js' );
 wp_enqueue_media();
 ?>

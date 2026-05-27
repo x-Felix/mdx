@@ -180,11 +180,7 @@ jQuery(document).ready(function(){
         var img5=jQuery("#mdx_post_def_img_url").val();
         jQuery('#img5').attr('src',img5);
     }
-    setInterval("img1()",500);
-    setInterval("img2()",500);
-    setInterval("img3()",500);
-    setInterval("img4()",500);
-    setInterval("img5()",500);
+    input_image_preview(["#mdx_index_img", "#mdx_side_img", "#mdx_side_head", "#mdx_logo", "#mdx_post_def_img_url"]);
     var disable_color = false;
     if(jQuery("#mdx_svg_color").attr("disabled") === "disabled"){
         disable_color = true;
@@ -259,29 +255,6 @@ jQuery("#use-api3").click(function(){
 jQuery("#use-bing-api").click(function(){
     jQuery('#mdx_index_img').val('--BingImagesActivated(0)--');
 });
-function img1(){
-    var img1=jQuery("#mdx_index_img").val();
-    if(img1.substring(0,4) != 'http'){
-        img1 = '';
-    }
-    jQuery('#img1').attr('src',img1);
-}
-function img2(){
-    var img2=jQuery("#mdx_side_img").val();
-    jQuery('#img2').attr('src',img2);
-}
-function img3(){
-    var img3=jQuery("#mdx_side_head").val();
-    jQuery('#img3').attr('src',img3);
-}
-function img4(){
-    var img4=jQuery("#mdx_logo").val();
-    jQuery('#img4').attr('src',img4);
-}
-function img5(){
-    var img5=jQuery("#mdx_post_def_img_url").val();
-    jQuery('#img5').attr('src',img5);
-}
 function mdx_logo_sec(selectV){
     if(selectV == '1'){
         jQuery('.logo_logo,.logo_text').hide();

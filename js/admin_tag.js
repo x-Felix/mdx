@@ -15,11 +15,7 @@ jQuery(document).ready(function(){
         }).open();
         return;
     });
-    if(jQuery("#mdx_index_img").val()!=''){
-        var img1=jQuery("#mdx_index_img").val();
-        jQuery('#img1').attr('src',img1);
-    }
-    setInterval("img1()",500);
+    input_image_preview(['#mdx_post_money']);
     var mdx_val = jQuery('input.mdx_apsp2:checked').val();
     if(mdx_val=='true'){
         jQuery('input.mdx_apspc2').removeAttr("disabled");
@@ -99,13 +95,6 @@ jQuery(".mdx_img_box").click(function(){
         jQuery('input.mdx_img_box_alt').attr("disabled","disabled");
     }
 });
-function img1(){
-    var img1=jQuery("#mdx_post_money").val();
-    if(img1.substring(0,4) != 'http'){
-        img1 = '';
-    }
-    jQuery('#img1').attr('src',img1);
-}
 function mdx_cdn_sec(selectV){
     if(selectV ==='none' || selectV ==='jsdelivr'){
         jQuery('.cdn_custom').hide();
