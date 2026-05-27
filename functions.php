@@ -103,13 +103,8 @@ if (is_admin()) {
     include_once('admin_functions.php');
 }
 
-//主题升级
-require 'plugin-update-checker/plugin-update-checker.php';
-$mdxUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://cdn.jsdelivr.net/gh/axton-the-robot/mdx-assets@latest/info.json',
-    __FILE__,
-    'mdx'
-);
+// Update checker disabled: this fork manages releases independently via GitHub.
+// Original checker polled cdn.jsdelivr.net/gh/axton-the-robot/mdx-assets on every page load.
 
 //多语言支持
 function mdx_multilang() {

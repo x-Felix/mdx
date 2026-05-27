@@ -23,31 +23,9 @@ function mdx_display_sub_function_two(){
 function mdx_display_sub_function_three(){
     wp_register_style('mdx_admin', get_template_directory_uri().'/includes/admin.css');
     wp_enqueue_style('mdx_admin');
-    if(function_exists('file_get_contents')){
-        $opt2 = array(
-            'http'=>array('method'=>"GET",'header'=>"User-Agent: MDxThemeinWordPress\r\n")
-        );
-        $contexts2 = stream_context_create($opt2);
-        $lang = empty(get_option("WPLANG")) ? "en_US" : get_option("WPLANG");
-        $mdx_data2 = file_get_contents('https://mdxupdate.flyhigher.top/mdx/getnews?lang='.$lang.'&ver='.get_option('mdx_version'), false, $contexts2);
-        $mdx_news = '';
-        if($mdx_data2 != ''){
-            $mdx_news = '<div class="notice notice-info">
-            <p>'.__('通知：', 'mdx').$mdx_data2.'</p></div>';
-        }
-    }else{
-        $mdx_news = '';
-    }
-
-    if(function_exists('file_get_contents')){
-        $mdx_data = json_decode(file_get_contents('https://cdn.jsdelivr.net/gh/axton-the-robot/mdx-assets@latest/info.json', false));
-        $mdx_now_version = $mdx_data->version;
-        update_option('mdx_new_ver',$mdx_now_version);
-    }else{
-        $mdx_now_version = '版本号获取失败';
-    }
-
-    ($mdx_now_version != get_option('mdx_version')) ? $mdx_update_notice = '<p style="font-size:15px;"><strong>'.__('新版本已经发布。去<a href="update-core.php">更新</a>。', 'mdx').'</strong></p>' : $mdx_update_notice = '';
+    $mdx_news = '';
+    $mdx_now_version = get_option('mdx_version');
+    $mdx_update_notice = '';
 
     $mdx_ifedit = '';
 
@@ -85,11 +63,9 @@ add_action('admin_menu','remove_submenu');
 //初始化主题设置，只有第一次激活主题时调用
 function mdx_init_theme(){
     if(!get_option('mdx_first_init')){
-        //用途仅为统计安装量 mdx_key为发送请求时间戳的md5值 mdx_first_init不会在除此外的任何地方被调用 请保持克制不要恶意访问接口
+        /* DISABLED FOR SECURITY - sent hostname to mdxupdate.flyhigher.top on first activate
         if(function_exists('file_get_contents')){
-            $opt = array(
-                'http'=>array('method'=>"GET",'header'=>"User-Agent: MDxThemeinWordPress\r\n")
-            );
+            $opt = array('http'=>array('method'=>"GET",'header'=>"User-Agent: MDxThemeinWordPress\r\n"));
             $contexts = stream_context_create($opt);
             $mdx_token = file_get_contents('https://mdxupdate.flyhigher.top/mdx/gettoken/', false, $contexts);
             $mdx_key = file_get_contents('https://mdxupdate.flyhigher.top/mdx/getkey/index.php?hostname='.$_SERVER['HTTP_HOST'].'&token='.md5($mdx_token), false, $contexts);
@@ -98,6 +74,8 @@ function mdx_init_theme(){
             add_action('admin_notices', 'mdx_cant_notice');
             update_option('mdx_first_init', 'false');
         }
+        */
+        update_option('mdx_first_init', wp_generate_password(32, false));
 
         include_once('includes/admin_init_fn.php');
         include_once('includes/admin_init_style.php');
