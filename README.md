@@ -1,6 +1,3 @@
-<div align="right">Language: English | <a title="Chinese" href="https://github.com/yrccondor/mdx/blob/master/README/zh_CN.md">Chinese</a> | <a title="Turkish" href="https://github.com/yrccondor/mdx/blob/master/README/tr_TR.md">Turkish</a></div>
-
-<br>
 
 <p align="center">
 <img src="https://acdn.flyhigher.top/mdx-2020-new.jpg" alt="MDx">
