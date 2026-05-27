@@ -49,21 +49,16 @@ function mdx_display_sub_function_three(){
 
     ($mdx_now_version != get_option('mdx_version')) ? $mdx_update_notice = '<p style="font-size:15px;"><strong>'.__('新版本已经发布。去<a href="update-core.php">更新</a>。', 'mdx').'</strong></p>' : $mdx_update_notice = '';
 
-    $mdx_php_content = file_get_contents(get_theme_root()."/mdx/footer.php");
-    $mdx_results = strpos($mdx_php_content, 'href="https://flyhigher.top"');
     $mdx_ifedit = '';
-    if($mdx_results === false){
-        $mdx_ifedit = '<div class="notice notice-error">
-        <p>'.__("警告：你可能修改了主题底部的版权信息，请将其重新改正。MDx主题要求你保留版权信息。", "mdx").'</p></div>';
-    }
 
 echo '<div class="wrap">
 <h1>'.__('MDx 主题 - 关于', 'mdx').'</h1>'.$mdx_ifedit.$mdx_news.'
 <p class="mdx-admin-img"><img src="../wp-content/themes/mdx/img/admin.jpg"></p>
 <h2 style="font-size:19px;">'.__('感谢使用 MDx 主题', 'mdx').'</h2>
-<p style="font-size:15px;">'.__('我是 Axton Yao，这个主题由我开发。我的网站是', 'mdx').' <a href="https://flyhigher.top" target="_blank">flyhigher.top</a>'.__('。', 'mdx').'</p>
+<p style="font-size:15px;">'.__('这是 MDx 主题的社区维护 Fork 版本，专注于依赖更新与 Bug 修复，不添加新功能。', 'mdx').'</p>
+<p style="font-size:15px;">'.__('MDx 主题由 Axton Yao（yrccondor）原创开发，原项目地址：', 'mdx').'<a href="https://github.com/yrccondor/mdx" target="_blank">github.com/yrccondor/mdx</a>'.__('，在此致谢。', 'mdx').'</p>
+<p style="font-size:15px;">'.__('本 Fork 的 Github 地址是 ', 'mdx').'<a href="https://github.com/x-Felix/mdx" target="_blank">github.com/x-Felix/mdx</a>'.__('。', 'mdx').'</p>
 <p style="font-size:15px;">'.__('对主题有任何疑问，建议先查阅 ', 'mdx').'<a href="https://doc.flyhigher.top/mdx/" target="_blank">'.__('主题文档', 'mdx').'</a>'.__('。', 'mdx').'</p>
-<p style="font-size:15px;">'.__('这个项目的 Github 地址是 ', 'mdx').'<a href="https://github.com/yrccondor/mdx" target="_blank">github.com/yrccondor/mdx</a>'.__('。如果你有兴趣，欢迎为这个项目做出贡献。同时，求 Star。', 'mdx').'</p>
 <p style="font-size:15px;">'.__('这个主题的诞生离不开 MDUI，这是一个优秀的前端框架项目，你可以在他们的官方网站上了解更多：', 'mdx').'<a href="https://mdui.org" target="_blank">mdui.org</a>'.__('。', 'mdx').'</p>
 <br>
 <p style="font-size:17px;"><strong>'.__('感谢以下译者帮助翻译 MDx：', 'mdx').'</strong></p>
