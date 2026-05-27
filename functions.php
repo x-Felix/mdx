@@ -103,9 +103,6 @@ if (is_admin()) {
     include_once('admin_functions.php');
 }
 
-// Update checker disabled: this fork manages releases independently via GitHub.
-// Original checker polled cdn.jsdelivr.net/gh/axton-the-robot/mdx-assets on every page load.
-
 //多语言支持
 function mdx_multilang() {
     load_theme_textdomain('mdx', get_template_directory().'/languages');

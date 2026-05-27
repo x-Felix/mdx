@@ -105,13 +105,7 @@ wp_enqueue_media();
         </div>
 		<?php
 	} ?>
-	<?php if ( get_option( 'mdx_new_ver' ) != get_option( 'mdx_version' ) ) { ?>
-        <div class="notice notice-info is-dismissible">
-            <p><?php _e( 'MDx 已发布新版本 ', 'mdx' );
-				echo get_option( 'mdx_new_ver' );
-				_e( '。<a href="./admin.php?page=mdx_about">重新检查</a>', 'mdx' ); ?></p>
-        </div>
-	<?php }
+	<?php
 	if ( ! defined( 'ALU_VERSION' ) ) {
 		define( 'ALU_VERSION', '1.0.6' );
 	}
