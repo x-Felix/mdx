@@ -15,7 +15,7 @@
     "@wordpress/components": "^8.1.0",
     "@wordpress/core-data": "^2.5.0",
     "cgb-scripts": "1.15.0",
-    "emoji-js": "^3.4.1",
+    "emoji-js": "^3.9.0",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-jest": "^22.15.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -24,8 +24,8 @@
     "marked": "^18.0.4",
     "prismjs": "^1.30.0",
     "react-autosize-textarea": "^7.0.0",
-    "traverse": "^0.6.6",
-    "turndown": "^5.0.3",
+    "traverse": "^0.6.11",
+    "turndown": "^7.2.4",
     "turndown-plugin-gfm": "^1.0.2"
   }
 }

@@ -33,6 +33,9 @@ module.exports = {
             }
         }
     },
+    cache: {
+        type: 'filesystem',
+    },
     // devtool: 'source-map',
     mode: 'production',
     module: {
@@ -40,7 +43,6 @@ module.exports = {
             {
                 test: /\.(less|css)$/,
                 use: [
-                    'cache-loader',
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
@@ -54,36 +56,25 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                use: [
-                    'cache-loader',
-                    'babel-loader'
-                ],
+                use: ['babel-loader'],
                 exclude: /(node_modules|bower_components)/
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            outputPath: '../img/social-icons',
-                            publicPath: './img/social-icons',
-                            name: '[name].[ext]',
-                        }
-                    }
-                ]
+                type: 'asset/resource',
+                generator: {
+                    outputPath: '../img/social-icons/',
+                    publicPath: './img/social-icons/',
+                    filename: '[name][ext]',
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            outputPath: '../fonts/',
-                            name: '[name].[ext]',
-                        }
-                    }
-                ]
+                type: 'asset/resource',
+                generator: {
+                    outputPath: '../fonts/',
+                    filename: '[name][ext]',
+                }
             }
         ]
     },
