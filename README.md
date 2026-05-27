@@ -44,6 +44,7 @@
 The upstream repository has been inactive for some time, leaving a number of open PRs unmerged and dependencies with known vulnerabilities. This fork addresses that by:
 
 - **Dependency updates** — build toolchain upgraded from webpack 4 to webpack 5, eliminating all reported vulnerabilities in the root package; other dev and runtime dependencies brought up to current versions
+- **Telemetry removed** — all outbound callbacks to the author's server disabled: first-install hostname reporting, a per-page-load update checker, and an admin news fetch that ran on every About tab open
 - **Bug fixes** — PHP warnings and notices from upstream open issues and PRs applied where the fix is clear and safe
 - **No new features** — theme behaviour, UI, and end-user options are unchanged
 
