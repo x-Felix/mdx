@@ -68,7 +68,7 @@ wp_enqueue_media();
 		mdx_update_option( 'mdx_share_twitter_username', sanitize_text_field( $_POST['mdx_share_twitter_username'] ) );
 		mdx_update_option( 'mdx_share_image', sanitize_text_field( $_POST['mdx_share_image'] ) );
 		mdx_update_option( 'mdx_hot_posts', sanitize_text_field( $_POST['mdx_hot_posts'] ) );
-		mdx_update_option( 'mdx_hot_posts_get', sanitize_text_field( $_POST['mdx_hot_posts_get'] ) );
+		mdx_update_option( 'mdx_hot_posts_get', sanitize_text_field( $_POST['mdx_hot_posts_get'] ?? '' ) );
 		mdx_update_option( 'mdx_hot_posts_num', sanitize_text_field( $_POST['mdx_hot_posts_num'] ) );
 		mdx_update_option( 'mdx_hot_posts_cat', sanitize_text_field( $_POST['mdx_hot_posts_cat'] ) );
 		mdx_update_option( 'mdx_hot_posts_text', sanitize_text_field( $_POST['mdx_hot_posts_text'] ) );

@@ -11,30 +11,46 @@
 > Looks light, power inside.
 
 <p align="center">
-<img alt="Version" src="https://img.shields.io/badge/version-2.0.4-3f51b5.svg?style=flat-square"/>
-<a href="https://flyhigher.top"><img alt="Author" src="https://img.shields.io/badge/author-Axton-red.svg?style=flat-square"/></a>
+<img alt="Version" src="https://img.shields.io/badge/version-2.0.5-3f51b5.svg?style=flat-square"/>
+<a href="https://flyhigher.top"><img alt="Original Author" src="https://img.shields.io/badge/author-Axton-red.svg?style=flat-square"/></a>
 <img alt="WordPress" src="https://img.shields.io/badge/WordPress-5.0%2B-blue.svg?style=flat-square"/>
-<a href="https://mdx.flyhigher.top"><img alt="Download" src="https://img.shields.io/badge/download-2.49M-brightgreen.svg?style=flat-square"/></a>
 <a href="https://github.com/yrccondor/mdx/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-GPL%20V3.0-orange.svg?style=flat-square"/></a>
-<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fyrccondor%2Fmdx?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fyrccondor%2Fmdx.svg?type=shield"/></a>
 </p>
+
+---
+
+> **This is a community fork of [yrccondor/mdx](https://github.com/yrccondor/mdx) by [Axton (yrccondor)](https://github.com/yrccondor).**
+>
+> All credit for the design, features, and original implementation belongs to the original author. This fork is maintained under the same [GPL v3.0 license](LICENSE).
+>
+> **The sole focus of this fork is maintenance** — keeping dependencies current and applying bug fixes from open upstream PRs and reported issues. No new features are planned or added here. If you want feature development or official support, please follow the [original repository](https://github.com/yrccondor/mdx).
+
+---
 
 
 ## Contents
 
-- [Contents](#contents)
+- [About this fork](#about-this-fork)
 - [Introduction](#introduction)
 - [Demo](#demo)
 - [Download](#download)
 - [Internationalization](#internationalization)
 - [Docs](#docs)
 - [License](#license)
-- [Render](#render)
+
+
+## About this fork
+
+The upstream repository has been inactive for some time, leaving a number of open PRs unmerged and dependencies with known vulnerabilities. This fork addresses that by:
+
+- **Dependency updates** — build toolchain upgraded from webpack 4 to webpack 5, eliminating all reported vulnerabilities in the root package; other dev and runtime dependencies brought up to current versions
+- **Bug fixes** — PHP warnings and notices from upstream open issues and PRs applied where the fix is clear and safe
+- **No new features** — theme behaviour, UI, and end-user options are unchanged
 
 
 ## Introduction
 
-MDx: a light, elegent and powerful WordPress theme with Material Design.
+MDx: a light, elegant and powerful WordPress theme with Material Design.
 
 Key features:
 
@@ -62,9 +78,7 @@ Key features:
 
 ## Download
 
-You can download MDx [HERE](https://mdx.flyhigher.top).
-
-You can also download MDx from [Releases](https://github.com/yrccondor/mdx/releases). **DO NOT `clone` this repository just for downloading.**
+Download from [Releases](https://github.com/yrccondor/mdx/releases) on the original repo, or grab a ZIP from this fork for the patched version. **Do not `clone` just for downloading.**
 
 
 ## Internationalization
@@ -79,8 +93,6 @@ Supported language(s):
 - Traditional Chinese(Taiwan) (Thanks [AngelKitty](https://github.com/AngelKitty))
 - Traditional Chinese(Hong Kong)
 
-> You can help us to translate MDx into other languages!
-
 
 ## Docs
 
@@ -94,8 +106,3 @@ Supported language(s):
 <a href="https://github.com/yrccondor/mdx/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-GPL%20V3.0-orange.svg?style=flat-square"/></a>
 
 Open sourced under the GPL v3.0 license.
-
-
-## Render
-
-![](https://acdn.flyhigher.top/wp-content/uploads/2017/11/det.jpg)
