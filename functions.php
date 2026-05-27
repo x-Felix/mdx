@@ -71,7 +71,14 @@ remove_filter('the_title', 'wptexturize');
 remove_filter('wp_title', 'wptexturize');
 remove_filter('single_post_title', 'wptexturize');
 
-//初始化
+//初始化 - Security fix applied 2026-05-14
+// Use local initialization instead of external HTTP requests
+if (!get_option('mdx_first_init')) {
+    update_option('mdx_first_init', 'local-' . wp_generate_password(32, false));
+    include_once('includes/admin_init_fn.php');
+}
+
+/* DISABLED FOR SECURITY - External HTTP requests (can re-enable if needed)
 if (!get_option('mdx_first_init')) {
     //用途仅为统计安装量 mdx_key为发送请求时间戳的md5值 mdx_first_init不会在除此外的任何地方被调用
     if (function_exists('file_get_contents')) {
@@ -87,6 +94,7 @@ if (!get_option('mdx_first_init')) {
     }
     include_once('includes/admin_init_fn.php');
 }
+*/
 
 include_once('includes/admin_init_ver.php');
 
